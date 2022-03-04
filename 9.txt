@@ -1,0 +1,563 @@
+controller.........
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Assmvc3.Models;
+
+namespace Assmvc3.Controllers
+{
+    public class HomeController : Controller
+    {
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+        public ActionResult Service()
+        {
+            return View();
+        }
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
+        
+        public ActionResult Login(LoginModel s)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Login");
+            }
+            return View(s);
+        }
+        public ActionResult Registration(RegisterM p)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Registration");
+            }
+            return View(p);
+        }
+
+    }
+}
+
+Layout1....................
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+   
+
+
+</head>
+<body ><br /><br />
+   
+
+        <nav>
+            <header align="center" >
+                <div>
+                    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.ActionLink("AboutUs", "AboutUs", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.ActionLink("Service", "Service", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.ActionLink("ContactUs", "ContactUs", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @Html.ActionLink("Registration", "Registration", "Home", new { area = "" }, new { })&nbsp;
+                </div>
+
+            </header>
+
+
+
+            <table style="width:100%;">
+
+
+                <tr>
+                    <td>@RenderBody()</td>
+
+                </tr>
+
+            </table>
+
+
+        </nav>
+        
+        <footer  >
+            <div align="left"class="container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15127.496403242956!2d73.7385359!3d18.5797139!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa98cd1ba681f2e36!2sNCSI%20TECHNOLOGIES%20PVT%20LTD!5e0!3m2!1sen!2sin!4v1645976283743!5m2!1sen!2sin"
+                        width="400"
+                        height="300"
+                        style="border:0;"
+                        allowfullscreen=""
+                        aria-hidden="false"
+                        loading="lazy"></iframe>
+                Copyright © 2021 NCS Pte Ltd. All Rights Reserved.
+            </div>
+        </footer>
+
+</body>
+</html>
+
+Login Layout ............................
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+
+
+
+</head>
+<body >
+
+    <br /><br />
+    <nav>
+        <header align="center">
+            <div>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("AboutUs", "AboutUs", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Service", "Service", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("ContactUs", "ContactUs", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Registration", "Registration", "Home", new { area = "" }, new { })&nbsp;
+            </div>
+
+        </header>
+       
+
+
+
+        <table style="width:100%;">
+
+
+            <tr>
+                <td>@RenderBody()</td>
+
+            </tr>
+
+        </table>
+
+
+    </nav>
+    <div class="bg"></div>
+    <footer align="center" style="height:auto; ">
+        <div class="container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15127.496403242956!2d73.7385359!3d18.5797139!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa98cd1ba681f2e36!2sNCSI%20TECHNOLOGIES%20PVT%20LTD!5e0!3m2!1sen!2sin!4v1645976283743!5m2!1sen!2sin"
+                    width="400"
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    loading="lazy"></iframe>
+            Copyright © 2021 NCS Pte Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
+
+Register Layout......................
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+
+
+
+</head>
+<body>
+    <br />
+    <br />
+
+    <nav>
+        <header align="center">
+            <div>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("AboutUs", "AboutUs", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Service", "Service", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("ContactUs", "ContactUs", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              
+            </div>
+
+        </header>
+
+
+
+        <table style="width:100%;">
+
+
+            <tr>
+                <td>@RenderBody()</td>
+
+            </tr>
+
+        </table>
+
+
+    </nav>
+
+    <footer>
+        <div class="container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15127.496403242956!2d73.7385359!3d18.5797139!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa98cd1ba681f2e36!2sNCSI%20TECHNOLOGIES%20PVT%20LTD!5e0!3m2!1sen!2sin!4v1645976283743!5m2!1sen!2sin"
+                    width="400"
+                    height="300"
+                    style="border:0;"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    loading="lazy"></iframe>
+            Copyright © 2021 NCS Pte Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
+Aboutus.cshtml..........................
+@{
+    ViewBag.Title = "AboutUs";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<br />
+<br />
+<h1>AboutUs</h1>
+<br />
+<br />
+
+
+<table align="center" style="width:100%;">
+    <tr align="center">
+        <td>
+            <h1> our purpose</h1>
+            <h4>
+
+                We advance our communities by partnering with governments and <br />
+                enterprises to harness technology.<br />
+                We do this by bringing people together to make the extraordinary happen.
+
+            </h4>
+            <h1>
+                The “How” we do it.
+
+            </h1>
+            <h4>
+                We value teamwork. It’s only when we come together<br />
+                can we achieve extraordinary outcomes.
+
+            </h4>
+            <h1>
+                our beliefs
+            </h1>
+            <h4>
+                Just like the vowels in the English language, everything we do in NCS is anchored around our 5<br />
+                beliefs – AEIOU.
+            </h4>
+        </td>
+    </tr>
+
+
+</table>
+Conact us.schtml...................
+
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1>ContactUs</h1>
+
+<body align="center">
+    <div>
+
+        <img src="~/Images/ncs_logo.png" />
+
+        <h3>
+
+
+
+            5th Floor, IT 7 Building,<br />
+            Blue Ridge Phase II, Blue Ridge Township, <br />
+            Hinjewadi Pune 411057,<br /> Maharashtra,India <br />
+            Pune, IN
+        </h3>
+    </div>
+</body>
+index.cshtml....................
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<body align="center"><br /><br /><br /><br />
+    <h1 >Welcome to NCS Company</h1>
+
+    <div align="center">
+        <img src="~/Images/download (1).png" />
+        
+    </div>
+
+</body>
+Registration.cshtml...........................................
+@model Assmvc3.Models.RegisterM
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/RegLayout.cshtml";
+}
+<head>
+    <style>
+        .col-md-10 {
+            color: orangered;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <br /><br /><br /><br />
+    <div>
+        <img src="~/Images/ncs_logo.png" />
+    </div>
+    <div>
+
+        <img src="~/Images/Register.jpg" />
+
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+service.cshtml......................
+@{
+    ViewBag.Title = "Service";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<head>
+
+</head>
+<body>
+    <div>
+
+        <img src="~/Images/download (1).png" />
+
+    </div>
+    <h1>Services</h1>
+    <div align="center">
+        <h3>
+            @Html.ActionLink("Applications", "", "", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br /><br /><br /><br /><br />
+            @Html.ActionLink("Infrastructure", "", "", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br /><br /><br /><br /><br />
+            @Html.ActionLink("Engineering", "", "", new { area = "" }, new { })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br /><br /><br /><br /><br />
+            @Html.ActionLink("Cyber", "", "", new { area = "" }, new { })
+        </h3>
+    </div>
+
+
+</body>
+
+
+RegisterModel.cs..................................
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
+
+namespace Assmvc3.Models
+{
+    public class RegisterM
+    {
+        public int UserId { get; set; }
+        [Required(ErrorMessage = "Name is Required")]
+        public string UserName { get; set; }
+        [Required(ErrorMessage = "Age is Required")]
+        [Range(18, 100, ErrorMessage = "Age should be Required")]
+        public string Age { get; set; }
+        [Required(ErrorMessage = "Email is Required")]
+        [RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}", ErrorMessage = "Please enter Valid Email ID")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Number is Required")]
+        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Please Enter Valid Mobile Number.")]
+        public string Mobile { get; set; }
+        [Required(ErrorMessage = "Gender is Required")]
+        public string gender { get; set; }
+
+    }
+}
+
+
+
+Loginmodel.cs    .................
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
+
+
+namespace Assmvc3.Models
+{
+    public class LoginModel
+    {
+        [Required(ErrorMessage = "Name should be Required")]
+        public string UserName { get; set; }
+        [Required(ErrorMessage = "Password is Required")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        
+
+
+
+    }
+
+}
+login.cshtml...................................
+@model Assmvc3.Models.LoginModel
+
+@{
+
+    Layout = "~/Views/Shared/loginLayout.cshtml";
+}
+<head>
+    <style>
+        .col-md-10 {
+            color: orangered;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<br />
+<br />
+<br />
+<br />
+<div align="center">
+    <img src="~/Images/images.png" />
+</div>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-horizontal">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+</body>
+

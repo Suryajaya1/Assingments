@@ -1,0 +1,251 @@
+problem1...............................
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id='id'></p>
+    <script type='text/javascript'>
+    let add = (a,b) => a+b
+    document.getElementById('id').innerHTML=add(5,6);
+</script>
+ <p id='id1'></p>
+    <script type='text/javascript'>
+    let sub = (a,b) => a-b
+    document.getElementById('id1').innerHTML=sub(5,4);   
+</script>
+<p id='id2'></p>
+<script type='text/javascript'>
+let mul = (a,b) => a*b
+document.getElementById('id2').innerHTML=mul(5,2);
+</script>
+
+<p id='id3'></p>
+<script type='text/javascript'>
+let div = (a,b) => a/b
+document.getElementById('id3').innerHTML=div(10,2);
+</script>
+    </script>
+</body>
+</html>
+
+problem2.............................
+<html>    
+    <head>    
+    <title>    
+        Simple Calculator    
+    </title>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>    
+    <script>      
+        $(document).ready(function(){    
+            $("#sal").on('click',function()
+            {    
+                Add();    
+            });   
+        });    
+        function Add()
+        {    
+         var N1=parseInt($("#i1").val());    
+         var N2=parseInt($("#i2").val()); 
+         var N3=parseInt($("#i3").val());    
+         var N4=parseInt($("#i4").val());    
+         var total =N1+N2+N3+N4;    
+          alert("The result is "+total);    
+        } 
+    </script>    
+    </head>    
+    <body>    
+       Employee Salary <input type="text" id="i1"   placeholder="Enter Salary"><br>    
+       Travel allowance<input type="text" id="i2"   placeholder="Enter Travel allowance"><br>
+       Dear allowance  <input type="text" id="i3"   placeholder="Enter Dear allowance"><br> 
+       Professional Tax<input type="text" id="i4"   placeholder="Enter Professional Tax"><br>     
+        <input type="button" id="sal" value="total Employee Salary"> 
+    </body>    
+    </html>   
+
+
+problem3....................
+
+
+
+<!DOCTYPE html>
+<html>
+<head><title>JQuery Assignments</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#id1").on({
+    "click": function() { console.log( "Press.." ); },
+    "mouseover": function() { 
+        $("#welcome-text").html("Homepage");
+        console.log( "hovered.." ); }
+    });
+});
+</script>
+</head>
+<body>
+</div>
+<div >
+<a href="https://www.agernic.com/jquery/animate.html">animation website</a>
+<h1>Website</h1>
+<br><p id="id1" style="font-size: large; font-family: 'Courier New', Courier, monospace;">Event in jquery</p>
+<p id="welcome-text" style="font-size: large;"></p>
+<br>
+</div>
+
+
+</body>
+</html>
+problem4................................
+
+<!DOCTYPE html>
+<html>
+<head><title>JQuery Assignments</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+class Rectangle{
+    constructor(height,width)
+    {
+        this.height=height;
+        this.width=width;
+    }
+    calc()
+    {
+        return parseInt(this.height)*parseInt(this.width);
+    }
+    display()
+    {
+        return parseInt(this.calc());
+    }
+} 
+$(document).ready(function(){
+    $("#a1").click(function(){
+        var rect=new Rectangle(($("#height").val()),($("#width").val()));
+        $("#id1").html("Area of rectangle is :"+rect.display());
+    });
+   
+});
+</script>
+</head>
+<body>
+<div>
+<h1>area of triangle and rectangle </h1>
+Height <input type="number" id="height">
+<br><br>
+Width <input type="number" id="width">
+<br><br><button id="a1"> Result</button>
+<p id="id1" style="font-size: 22px; "></p>
+</div>
+
+</body>
+</html>
+
+
+problem6..............................
+
+<!DOCTYPE html>
+<html>
+<head><title>JQuery Assignments</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var color = '#';
+var letters = '0123456789ABCDEFGHIK';
+var i=1;
+var handle=setInterval(function(){
+color += letters[Math.floor(Math.random() * 10)];
+$("body").css("background-color",color);
+i++;
+if(i>20) clearInterval(handle);
+},1200);
+
+
+});
+</script>
+</head>
+<body align="center" style="background-color: blue">
+<div>
+</div>
+
+</body>
+</html>
+problem7............................
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-git.js"></script>
+<title>combobox.</title>
+</head>
+<body>
+<h1>Cuntries</h1>
+<select id='countries'>
+<option value="">Choose</option>
+<option value="India">India</option>
+<option value="America">America</option>
+<option value="Asia">Asia</option>
+ <option value="Australia">Australia</option>
+ </select>
+ </body>
+ </html>
+
+problem8.......................................
+<html>    
+    <head>    
+    <title>    
+        Simple Calculator    
+    </title>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>    
+    <script>      
+        $(document).ready(function(){    
+            $("#Add").on('click',function(){    
+                sum();    
+            });    
+            $("#Sub").on('click',function(){    
+                Sub1();    
+            })    
+            $("#Mul").on('click',function(){    
+                Mul1();    
+            })    
+            $("#Div").on('click',function(){    
+                Div1();    
+            })    
+        });    
+        function sum(){    
+         var no1=parseInt($("#N1").val());    
+         var no2=parseInt($("#N2").val());    
+         var result =no1+no2;    
+          alert("The result is "+result);    
+        }    
+        function Sub1(){    
+         var no1=parseInt($("#N1").val());    
+         var no2=parseInt($("#N2").val());    
+         var result =no1-no2;    
+          alert("The result is "+result);    
+        }    
+        function Mul1(){    
+         var no1=parseInt($("#N1").val());    
+         var no2=parseInt($("#N2").val());    
+         var result =no1*no2;    
+          alert("The result is "+result);    
+        }    
+        function Div1(){    
+         var no1=parseInt($("#N1").val());    
+         var no2=parseInt($("#N2").val());    
+         var result =no1/no2;    
+          alert("The result is "+result);    
+        }    
+    </script>    
+    </head>    
+    <body>    
+       1st Number <input type="text" id="N1" placeholder="Enter num"><br>    
+       2nd Number<input type="text" id="N2"  placeholder="Enter num"><br>    
+        <input type="button" id="Add" value="sum">
+        <input type="button" id="Sub" value="Sub1">    
+        <input type="button" id="Mul" value="Mul1">  
+        <input type="button" id="Div" value="Div1">    
+    </body>    
+    </html>   

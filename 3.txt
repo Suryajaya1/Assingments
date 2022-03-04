@@ -1,0 +1,190 @@
+problem1.........................
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.default-v2.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js">
+         $(document).ready(function(){
+             $("#form1").validate();
+         });
+         });
+         </script>
+</head>
+<body>
+    <form id="form1" method="post">
+    <label for="fname">FName  :<span style="background-color: greenyellow;">First Name</span></label>
+    <input id="fname" type="text" >
+    <button text="submit" value="submit">click here</button>
+    <br>
+    <label for="lname">LName  :<span style="background-color: greenyellow;">Last Name</span></label>
+    <input id="lname" type="text" >
+    <button text="submit" value="submit">click here</button>
+    <br>
+    <input type="date">
+    <input type="email">
+    </form>
+    
+    
+</body>
+</html>
+
+
+problem2...........................
+
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common.min.css" rel="stylesheet" />
+    <head>
+    <meta charset="utf-8" />
+        <title>Getting Started with Kendo UI for jQuery</title>
+        <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.default.min.css" rel="stylesheet" />
+        <script src="https://kendo.cdn.telerik.com/2022.1.119/js/jquery.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
+        </head>
+    
+    
+    
+<body>
+    <input id="c1">
+    <input id="c2">
+    <input id="c3">
+<script>
+      $(document).ready(function(){
+    $("#c1").kendoComboBox({
+      dataTextField: "text",
+      dataValueField: "value",
+      dataSource: [
+        { text: "india", value: "1" },
+        { text: "asia", value: "2" },
+        { text: "america", value: "3" }]
+    });
+    $("#c2").kendoComboBox({
+      dataTextField: "text",
+      dataValueField: "value",
+      dataSource: [
+        { text: "Karnataka", value: "1" },
+        { text: "Maharastra", value: "2" },
+        { text: "andrapradesh", value: "3" }]
+  });
+  $("#c3").kendoComboBox({
+      dataTextField: "text",
+      dataValueField: "value",
+      dataSource: [
+        { text: "Belagavi", value: "1" },
+        { text: "Pune", value: "2" },
+        { text: "Bangalore", value: "3" }]
+});
+});
+
+    
+</script>
+    
+</body>
+</html>
+
+problem3.............................................
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+$("div").animate({
+left: '500px',
+width: '200px',
+height: '200px',
+background:'red'
+});
+});
+});
+</script>
+</head>
+<body>
+<button>Animate the block</button>
+<div style="background:green;height:80px;width:120px;position:absolute;"></div>
+</body>
+</html>
+
+problem5...........................................
+
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common.min.css" rel="stylesheet" />
+    <head>
+    <meta charset="utf-8" />
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.common.min.css" rel="stylesheet" />
+<link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.default.min.css" rel="stylesheet" />
+<script src="https://kendo.cdn.telerik.com/2022.1.119/js/jquery.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
+<script type="text/javascript">
+    <input id="c1">
+<script>
+      $(document).ready(function(){
+      $("#c1").kendoComboBox({
+      dataTextField: "text",
+      dataValueField: "value",
+      dataSource: [
+        { text: "Belagavi", value: "1" },
+        { text: "Pune", value: "2" },
+        { text: "Bangalore", value: "3" }]
+</script>
+
+$(document).ready(function() {
+  	$("#form").validate({
+      rules: {
+         firstname: 'required',
+         lastname: 'required',
+         u_email: {
+            required: true,
+            email: true,
+            maxlength: 255,
+         },
+      },
+
+     messages: { Fname: 'required field',Lname: 'required field',Eemail: 'required field',
+     age:"required field",
+	},
+
+ submitHandler: function(form) {
+   form.submit();
+}
+});
+});
+</script>
+</head>
+<body>
+<h2>Validation of a form</h2>
+<form id="form" method="post">
+First name:<br>
+<input type="text" name="Fname">
+<br>
+Last name:<br>
+<input type="text" name="Lname">
+<br>
+Email:<br>
+<input type="email" name="Email">
+<br>
+age:<br>
+<input type="number" name="age">
+<br><br>
+
+<input type="submit" value="Submit">
+<br>
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,362 @@
+
+1)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace A5_P1
+{
+
+    public class SI{
+        public float sbi = (float)Convert.ToDouble(0.102);
+    }
+    public class Inheritance1 : SI
+    {
+        public float axis = (float)Convert.ToDouble(0.9);
+
+    }
+    public class Inheritance2 : SI
+    {
+        public float c = (float)Convert.ToDouble(0.9);
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int p = Convert.ToInt32(Console.ReadLine());
+            int t = Convert.ToInt32(Console.ReadLine());
+            Inheritance1 si = new Inheritance1();
+            double si1 =(p*t*si.sbi) /100;
+            Console.WriteLine("simple interest of sbi bank is :"+si1);
+            double si2 = (p * t * si.axis) / 100;
+            Console.WriteLine("simple interest of axis bank is :" + si2);
+            Inheritance2 s1 = new Inheritance2();
+            double si3 = (p * t * s1.c) / 100;
+            Console.WriteLine("simple interest of cosmos bank is :" + si3);
+            Console.ReadLine();
+        }
+    }
+}
+
+
+2)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace A5P2
+{
+    public class SBI
+    {
+        public virtual float ROI { get; } = 0.102f;
+        public float CalcInterest(int p, int t, float r)
+        {
+            return (p * t * r) / 100;
+        }
+        public int t(int year, int month)
+        {
+            return ((12 * year) + month);
+        }
+        public float Installments(int t, int principle)
+        {
+
+            return (principle / t);
+        }
+    }
+    public class SyndicateBank : SBI
+    {
+        public override float ROI { get; } = 0.9f;
+    }
+    public class AxisBank : SBI
+    {
+        public override float ROI { get; } = 0.8f;
+
+    }
+    public class CosmosBank : SBI
+    {
+        public override float ROI { get; } = 0.6f;
+    }
+
+    public class MyClass
+    {
+        public static void Main(string[] args)
+        {
+            SBI rb = new SBI();
+
+            int bank;
+
+            int p, year, month;
+            float interest;
+            int amt;
+            Console.Write("\n\nEnter Amount : ");
+            p = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n\nEnter year : ");
+            year = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n\nEnter month : ");
+            month = Convert.ToInt32(Console.ReadLine());
+            if (month < 0 || month > 12)
+            {
+                Console.WriteLine("\nInvalid input..");
+                return;
+            }
+
+            Console.WriteLine("\n\n\t\t Select the BANK ");
+            Console.WriteLine("\n\t 1. SyndicateBank   ");
+            Console.WriteLine("\n\t 2. Axis Bank  ");
+            Console.WriteLine("\n\t 3. Cosmos Bank   ");
+
+            bank = Convert.ToInt32(Console.ReadLine());
+
+            int t = rb.t(year, month);
+
+            switch (bank)
+            {
+
+                case 1:
+                    rb = new SyndicateBank();
+
+                    Console.WriteLine("\n\tMonthly Interest Rate : " + rb.ROI );
+                    interest = rb.CalcInterest(p, t, rb.ROI);
+                    Console.WriteLine("\n\tTotal Interest : " + interest);
+                    amt = Convert.ToInt32(p + interest);
+                    Console.WriteLine("\n\n\tPrinciple Amount : " + amt);
+                    Console.WriteLine("\n\nYour monthly installments will be of : " + rb.Installments(t, amt) + " for next " + t + " months.");
+
+                    break;
+                case 2:
+                    rb = new AxisBank();
+
+                    Console.WriteLine("\n\tMonthly Interest Rate : " + rb.ROI + " %");
+                    interest = rb.CalcInterest(p, t, rb.ROI);
+                    Console.WriteLine("\n\tTotal Interest : " + interest);
+                    amt = Convert.ToInt32(p + interest);
+                    Console.WriteLine("\n\n\tTotal Principle Amount : " + amt);
+                    Console.WriteLine("\n\nYour monthly installments will be of : " + rb.Installments(t, amt) + " for next " + t + " months.");
+
+                    break;
+                case 3:
+                    rb = new CosmosBank();
+
+                    Console.WriteLine("\n\tMonthly Interest Rate : " + rb.ROI + " %");
+                    interest = rb.CalcInterest(p, t, rb.ROI);
+                    Console.WriteLine("\n\tTotal Interest : " + interest);
+                    amt = Convert.ToInt32(p + interest);
+                    Console.WriteLine("\n\n\tTotal Principle Amount : " + amt);
+                    Console.WriteLine("\n\n monthly installments  : " + rb.Installments(t, amt) + " for " + t + " months.");
+
+                    break;
+                default:
+                    Console.WriteLine("\n\n\terror");
+                    return;
+
+            }
+            Console.ReadLine();
+
+        }
+    }
+}
+
+
+
+
+
+
+3)
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace A5P3
+{
+    public abstract class EmployeeSalary
+    {
+        public abstract int TotalSalary();
+    }
+    interface ICompany
+    {
+        void Struct();
+    }
+    public class Employee : EmployeeSalary, ICompany
+    {
+        public int id;
+        public string name;
+        public int baseSalary;
+        public int Food;
+        public int ProvisionalFund;
+        public int Transport;
+        public int Insurance;
+        public override int TotalSalary()
+        {
+
+            return ((baseSalary + Food + Transport) - (Insurance + ProvisionalFund));
+        }
+        public void Struct()
+        {
+            Console.WriteLine("\t\n Employee Salary Details");
+            Console.WriteLine("\nEmployee Name: " + name);
+            Console.WriteLine("\n\nYour Total Salary is : " + TotalSalary());
+        }
+    }
+
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            Employee Emp = new Employee();
+            Console.Write("\nEmployee ID : ");
+            Emp.id = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter Name : ");
+            Emp.name = Console.ReadLine();
+            Console.Write("\nEnter Base Salary : ");
+            Emp.baseSalary = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n Transportation : ");
+            Emp.Transport = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n Food Allowance: ");
+            Emp.Food = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n Professional Fund : ");
+            Emp.ProvisionalFund = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n life insurance : ");
+            Emp.Insurance = Convert.ToInt32(Console.ReadLine());
+            Emp.Struct();
+            Console.ReadLine();
+
+        }
+    }
+}
+
+
+
+
+
+
+4a)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace as5
+{
+    class Prog
+    {
+        public int Add(int num1)
+        {
+            return (num1 * num1 * num1);
+        }
+        public float Add(float num2, float num3)
+        {
+            return (num2 * num3);
+        }
+        public float Add(float num1)
+        {
+            if (num1 == 0f)
+            {
+                return 1;
+            }
+            else
+            {
+                return (num1 * Add(num1 - 1));
+            }
+        }
+
+        internal class Program
+        {
+            static void Main(string[] args)
+            {
+                Console.Write("enter the number");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("enter the number");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("enter the number");
+                float num3 = (float)Convert.ToDouble (Console.ReadLine());
+                Prog obj = new Prog();
+                Console.WriteLine("Suare of number :" + obj.Add(num1,num2));
+                Console.WriteLine("factorial of number :" + obj.Add(num3));
+                Console.WriteLine("cube of number :" + obj.Add(num1));
+                Console.ReadLine();
+
+            }
+        }
+    }
+}
+
+
+
+4b)
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace A5P4B
+{
+    public class My1
+    {
+        public virtual void Square(int n1)
+        {
+            Console.WriteLine("square");
+        }
+        public virtual void Cube(int n3)
+        {
+            Console.WriteLine("cube");
+        }
+        public virtual void Factorial(int n3)
+        {
+            Console.WriteLine("fact");
+        }
+    }
+    public class My2 : My1
+    {
+        public override void Square(int n1)
+        {
+            Console.WriteLine(n1 * n1);
+        }
+        public override void Cube(int n1)
+        {
+            Console.WriteLine(n1 * n1 * n1);
+
+        }
+        public override void Factorial(int n1)
+        {
+            int Fact = 1;
+            for (int i = 1; i < n1+1; i++)
+            {
+                Fact = Fact * i;
+            }
+            Console.WriteLine(Fact);
+            Console.ReadLine();
+        }
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write(" Enter the Number     :");
+            int n1 = Convert.ToInt32(Console.ReadLine());
+            My1 s1 = new My2();
+            Console.Write(" Square of the Number :");
+            s1.Square(n1);
+            Console.Write(" Cube of the Number   :");
+            s1.Cube(n1);
+            Console.Write(" Factorial of the Number:");
+            s1.Factorial(n1);
+            Console.ReadLine();
+
+
+        }
+    }
+}
